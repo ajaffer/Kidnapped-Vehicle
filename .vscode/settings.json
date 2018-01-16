@@ -1,0 +1,29 @@
+{
+  "files.associations": {
+    "__locale": "cpp",
+    "__config": "cpp",
+    "__nullptr": "cpp",
+    "exception": "cpp",
+    "initializer_list": "cpp",
+    "new": "cpp",
+    "stdexcept": "cpp",
+    "typeinfo": "cpp",
+    "algorithm": "cpp",
+    "random": "cpp",
+    "iosfwd": "cpp",
+    "iterator": "cpp",
+    "vector": "cpp",
+    "__hash_table": "cpp",
+    "__split_buffer": "cpp",
+    "bitset": "cpp",
+    "deque": "cpp",
+    "memory": "cpp",
+    "stack": "cpp",
+    "string": "cpp",
+    "string_view": "cpp",
+    "unordered_set": "cpp",
+    "utility": "cpp",
+    "iostream": "cpp",
+    "ios": "cpp"
+  }
+}
