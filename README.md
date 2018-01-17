@@ -3,7 +3,6 @@
 #### Solution
 Please find the [solution](src/particle_filter.cpp)
 
-
 ## Running the Code
 Run using the following commands:
 

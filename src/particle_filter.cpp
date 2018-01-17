@@ -93,6 +93,7 @@ void ParticleFilter::prediction(double delta_t, double std_pos[], double velocit
 			cout << "going straight." << endl;
 			x = p.x + velocity * delta_t * cos(p.theta);
 			y = p.y + velocity * delta_t * sin(p.theta);
+			theta = p.theta;
 		}
 
 		// Creates a normal (Gaussian) distribution for x, y, theta
@@ -203,6 +204,7 @@ void ParticleFilter::updateWeights(double sensor_range, double std_landmark[],
 
 		dataAssociation(predicted, transformed_observations);
 
+		double weight = 1.0;
 		for (int l = 0; l < transformed_observations.size(); l++)
 		{
 			double sig_x = std_landmark[0];
@@ -229,15 +231,15 @@ void ParticleFilter::updateWeights(double sensor_range, double std_landmark[],
 			// cout << "exponent:" << exponent << endl;
 
 			//calculate weight using normalization terms and exponent
-			double weight = gauss_norm * exp(-exponent);
-			// cout << "calc weight:" << weight << endl;
-			p.weight = weight;
-			//TODO: is this the correct way to assign a value?
-			particles.at(i) = p;
-			weights.at(i) = weight;
+			weight *= gauss_norm * exp(-exponent);
+		}
+		cout << "calc weight:" << weight << endl;
+		p.weight = weight;
+		//TODO: is this the correct way to assign a value?
+		particles.at(i) = p;
+		weights.at(i) = weight;
 		}
 	}
-}
 
 void ParticleFilter::resample()
 {
